@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Odd and Even Sum Calculator</title>
+</head>
+<body>
+    <h1>Odd and Even Sum Calculator</h1>
+    <form id="sum-form">
+        <label for="number">Enter a number (N):</label>
+        <input type="number" id="number" min="1" required>
+        <button type="button" onclick="calculateSums()">Calculate</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculateSums() {
+            const inputNumber = parseInt(document.getElementById("number").value);
+            const resultElement = document.getElementById("result");
+
+            if (isNaN(inputNumber) || inputNumber < 1) {
+                resultElement.textContent = "Please enter a valid number (N should be at least 1).";
+            } else {
+                let sumOdd = 0;
+                let sumEven = 0;
+                for (let i = 1; i <= inputNumber; i++) {
+                    if (i % 2 === 0) {
+                        sumEven += i;
+                    } else {
+                        sumOdd += i;
+                    }
+                }
+                resultElement.textContent = `Sum of Odd = ${sumOdd}, Sum of Even = ${sumEven}`;
+            }
+        }
+    </script>
+</body>
+</html>
